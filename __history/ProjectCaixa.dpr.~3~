@@ -1,0 +1,17 @@
+program ProjectCaixa;
+
+uses
+  Vcl.Forms,
+  uFormLogin in 'uFormLogin.pas' {Form1},
+  uFormPrincipal in 'uFormPrincipal.pas' {Form2},
+  uFormCaixa in 'uFormCaixa.pas' {Caixa};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TCaixa, Caixa);
+  Application.Run;
+end.

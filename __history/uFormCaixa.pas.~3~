@@ -1,0 +1,53 @@
+unit uFormCaixa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls,
+  Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFrmCaixa = class(TForm)
+    PageCaixa: TPageControl;
+    TabCaixa: TTabSheet;
+    TabConsulta: TTabSheet;
+    lblServiços: TLabel;
+    lblCliente: TLabel;
+    edtServico: TEdit;
+    edtCliente: TEdit;
+    edtValorUnit: TEdit;
+    edtQuantidade: TEdit;
+    edtAPM: TEdit;
+    lblValorUnit: TLabel;
+    lblAPM: TLabel;
+    lblQuantidade: TLabel;
+    dbgPedidoPrincipal: TDBGrid;
+    ActionToolBar1: TActionToolBar;
+    dbgConsultaCaixa: TDBGrid;
+    btnPesquisa: TButton;
+    ComboBox1: TComboBox;
+    gpPesquisaCaixa: TGroupBox;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    btnConsulta: TButton;
+    btnLimpar: TButton;
+    btnExcluir: TButton;
+    btnSair: TButton;
+    lblValorTotal: TLabel;
+    edtValorTotal: TEdit;
+    btnReceberAVista: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCaixa: TFrmCaixa;
+
+implementation
+
+{$R *.dfm}
+
+end.

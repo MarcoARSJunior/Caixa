@@ -1,0 +1,70 @@
+unit uFrmServico;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids,
+  Vcl.ComCtrls;
+
+type
+  tmControl = class(TControl);
+
+  TFrmServico = class(TForm)
+    PageServico: TPageControl;
+    TabCadServico: TTabSheet;
+    TabConServico: TTabSheet;
+    lblIdServico: TLabel;
+    edtIdServico: TEdit;
+    lblServiço: TLabel;
+    edtNomeServico: TEdit;
+    lblValorServico: TLabel;
+    edtValor: TEdit;
+    DBGrid1: TDBGrid;
+    gbPesqServico: TGroupBox;
+    ComboBox1: TComboBox;
+    edtPesqServico: TEdit;
+    btnPesquisa: TButton;
+    GbServico: TGroupBox;
+    btnNovoServico: TButton;
+    btnSalvar: TButton;
+    btnAlterar: TButton;
+    btnExcluir: TButton;
+    btnCancelar: TButton;
+    procedure FormCreate(Sender: TObject);
+    procedure PageServicoDrawTab(Control: TCustomTabControl; TabIndex: Integer;
+      const Rect: TRect; Active: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmServico: TFrmServico;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmServico.FormCreate(Sender: TObject);
+begin
+  PageServico.OwnerDraw := true;
+  tmControl(PageServico).Color := clGradientInactiveCaption;
+end;
+
+procedure TFrmServico.PageServicoDrawTab(Control: TCustomTabControl;
+  TabIndex: Integer; const Rect: TRect; Active: Boolean);
+begin
+  Control.Canvas.FillRect(Rect);
+
+  PageServico.Canvas.font.Color := clBlack; // cor da aba do tabsheet
+
+  Control.Canvas.TextOut(Rect.left + 2, Rect.top + 2,
+    TTabSheet(PageServico.Pages[TabIndex]).Caption);
+
+  tmControl(PageServico.Pages[TabIndex]).Color := clGradientInactiveCaption;
+end;
+
+end.

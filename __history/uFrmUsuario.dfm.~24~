@@ -1,0 +1,224 @@
+object FrmUsuario: TFrmUsuario
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Usuario'
+  ClientHeight = 410
+  ClientWidth = 660
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageUsuario: TPageControl
+    Left = 0
+    Top = 0
+    Width = 660
+    Height = 410
+    ActivePage = TabCadUsuario
+    Align = alClient
+    TabOrder = 0
+    OnDrawTab = PageUsuarioDrawTab
+    ExplicitWidth = 650
+    ExplicitHeight = 400
+    object TabCadUsuario: TTabSheet
+      Caption = 'Cadastro Usu'#225'rios'
+      object gbUsuario: TGroupBox
+        Left = 21
+        Top = 15
+        Width = 600
+        Height = 300
+        Caption = 'Usuario'
+        TabOrder = 0
+        object lblNomeUsuario: TLabel
+          Left = 48
+          Top = 40
+          Width = 71
+          Height = 13
+          Caption = 'Nome Usu'#225'rios'
+        end
+        object lblLoginUsuario: TLabel
+          Left = 48
+          Top = 80
+          Width = 69
+          Height = 13
+          Caption = 'Login Usu'#225'rios'
+        end
+        object lblSenha: TLabel
+          Left = 48
+          Top = 120
+          Width = 30
+          Height = 13
+          Caption = 'Senha'
+        end
+        object lblPeriodo: TLabel
+          Left = 48
+          Top = 160
+          Width = 36
+          Height = 13
+          Caption = 'Periodo'
+        end
+        object edtNomeUsuario: TEdit
+          Left = 136
+          Top = 40
+          Width = 121
+          Height = 21
+          TabOrder = 0
+        end
+        object edtLoginUsuario: TEdit
+          Left = 136
+          Top = 80
+          Width = 121
+          Height = 21
+          TabOrder = 1
+        end
+        object edtSenha: TEdit
+          Left = 136
+          Top = 120
+          Width = 121
+          Height = 21
+          TabOrder = 2
+        end
+        object edtPeriodo: TEdit
+          Left = 136
+          Top = 160
+          Width = 121
+          Height = 21
+          TabOrder = 3
+        end
+        object edtCodUsuario: TEdit
+          Left = 400
+          Top = 37
+          Width = 121
+          Height = 21
+          TabOrder = 4
+          Text = 'edtCodUsuario'
+          Visible = False
+        end
+      end
+      object btnSalvar: TButton
+        Left = 90
+        Top = 329
+        Width = 75
+        Height = 25
+        Caption = 'Salvar'
+        TabOrder = 1
+        OnClick = btnSalvarClick
+      end
+      object btnCancelar: TButton
+        Left = 203
+        Top = 329
+        Width = 75
+        Height = 25
+        Caption = 'Cancelar'
+        TabOrder = 2
+      end
+      object btnAlterar: TButton
+        Left = 322
+        Top = 329
+        Width = 75
+        Height = 25
+        Caption = 'Alterar'
+        TabOrder = 3
+      end
+      object btnExcluir: TButton
+        Left = 450
+        Top = 329
+        Width = 75
+        Height = 25
+        Caption = 'Excluir'
+        TabOrder = 4
+      end
+    end
+    object TabConsUsuario: TTabSheet
+      Caption = 'Consulta Usu'#225'rios'
+      ImageIndex = 1
+      ExplicitWidth = 642
+      ExplicitHeight = 372
+      object gbPespUsuario: TGroupBox
+        Left = 37
+        Top = 19
+        Width = 550
+        Height = 70
+        Caption = 'Pesquisa'
+        TabOrder = 0
+        object lblUsuario: TLabel
+          Left = 30
+          Top = 24
+          Width = 41
+          Height = 13
+          Caption = 'Usu'#225'rios'
+        end
+        object edtPesqUsuario: TEdit
+          Left = 100
+          Top = 24
+          Width = 300
+          Height = 21
+          TabOrder = 0
+          OnKeyPress = edtPesqUsuarioKeyPress
+        end
+        object Button1: TButton
+          Left = 440
+          Top = 24
+          Width = 75
+          Height = 25
+          Caption = 'Buscar'
+          TabOrder = 1
+          OnClick = Button1Click
+        end
+      end
+      object DBGrid1: TDBGrid
+        Left = 37
+        Top = 112
+        Width = 550
+        Height = 200
+        DataSource = DM.dsUsuario
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnCellClick = DBGrid1CellClick
+        OnDrawColumnCell = DBGrid1DrawColumnCell
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'IdUsuario'
+            Title.Caption = 'Cod.'
+            Width = 41
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NomeUsuario'
+            Title.Caption = 'Nome'
+            Width = 201
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Periodo'
+            Visible = True
+          end>
+      end
+      object btnNovoUsuario: TButton
+        Left = 477
+        Top = 318
+        Width = 110
+        Height = 51
+        Caption = 'Novo Usuario'
+        TabOrder = 2
+        OnClick = btnNovoUsuarioClick
+      end
+    end
+  end
+end

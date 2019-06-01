@@ -1,0 +1,47 @@
+unit uFrmCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  TFrmCliente = class(TForm)
+    PageCliente: TPageControl;
+    TabCadCliente: TTabSheet;
+    TabConsCliente: TTabSheet;
+    DBGrid1: TDBGrid;
+    GbConsCliente: TGroupBox;
+    edtPesqCliente: TEdit;
+    Button1: TButton;
+    Label1: TLabel;
+    edtCodCliente: TEdit;
+    lblCodCliente: TLabel;
+    gbCliente: TGroupBox;
+    edtNomeCliente: TEdit;
+    lblNomeCliente: TLabel;
+    edtDocCliente: TEdit;
+    Label4: TLabel;
+    lblTelefone: TLabel;
+    lblFuncao: TLabel;
+    Label7: TLabel;
+    edtFuncao: TEdit;
+    edtTelefone: TEdit;
+    edtEmail: TEdit;
+    cbAPM: TCheckBox;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCliente: TFrmCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,66 @@
+unit uFormPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Menus,
+  Vcl.Imaging.pngimage, Vcl.ComCtrls;
+
+type
+  TFrmPrincipal = class(TForm)
+    Panel1: TPanel;
+    bmCadastro_Cliente: TImage;
+    bmFluxoCaixa: TImage;
+    bmCaixa: TImage;
+    bmCadastro_Usuario: TImage;
+    bmCadastro_Serviços: TImage;
+    Panel2: TPanel;
+    Image1: TImage;
+    Image7: TImage;
+    BalloonHint1: TBalloonHint;
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+    procedure bmCaixaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPrincipal: TFrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses uFormCaixa, uFrmCliente, uFrmCrediario, uFrmPagamento, uFrmServico,
+  uFrmUsuario;
+
+procedure TFrmPrincipal.bmCaixaClick(Sender: TObject);
+begin
+  FrmCaixa := TFrmCaixa.Create(Self);
+  FrmCaixa.ShowModal;
+end;
+
+procedure TFrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if Application.MessageBox('Deseja Realmente Sair', 'Informação',
+    MB_YESNO + MB_ICONQUESTION) = mrYES then
+  begin
+    Application.Terminate;
+  end
+  else
+    Abort;
+end;
+
+procedure TFrmPrincipal.Timer1Timer(Sender: TObject);
+begin
+  StatusBar1.Panels.Items[0].Text := DateTimeToStr(now);
+end;
+
+end.
